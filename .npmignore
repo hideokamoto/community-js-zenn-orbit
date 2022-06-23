@@ -1,0 +1,7 @@
+.circleci
+.github
+test/
+.editorconfig
+.eslint*
+.mocharc*
+yarn b
