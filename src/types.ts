@@ -18,7 +18,7 @@ export type ZennFeed = {
   lastBuildDate: string;
 };
 
-export type QiitaPost = {
+export type ZennPost = {
     rendered_body: string;
     body: string;
     coediting: boolean;

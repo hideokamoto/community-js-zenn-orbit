@@ -6,7 +6,7 @@ import {ParsedZennPost, parseZennPosts} from '../../lib/zenn/parser'
 import {listZennPostsByTag} from '../../lib/zenn/tag'
 import '../../lib/env'
 
-export type OrbitMemberWithQiitaUsername = {
+export type OrbitMemberWithZennUsername = {
   [username: string]: null | {
     id: string;
     slug: string;
@@ -35,7 +35,7 @@ export default class ActivitiesPut extends Command {
     }),
     'update-member-data': Flags.boolean({
       char: 'U',
-      description: 'Update Orbit member data using Qiita profile',
+      description: 'Update Orbit member data using Zenn profile',
       default: false,
     }),
   }
@@ -146,8 +146,8 @@ export default class ActivitiesPut extends Command {
         member: memberProps,
       },
       identity: {
-        source: 'Qiita',
-        source_host: 'qiita.com',
+        source: 'Zenn',
+        source_host: 'zenn.dev',
         username: post.username,
         url: post.profile_url,
       },
@@ -155,14 +155,14 @@ export default class ActivitiesPut extends Command {
     if (this.isDebug) console.log(putActivityResult)
   }
 
-  private async _listOrbitMemberByPosts(posts: ParsedZennPost[]): Promise<OrbitMemberWithQiitaUsername> {
+  private async _listOrbitMemberByPosts(posts: ParsedZennPost[]): Promise<OrbitMemberWithZennUsername> {
     const authorNames = new Set(posts.map(post => post.username))
-    const orbitMembers: OrbitMemberWithQiitaUsername = {}
+    const orbitMembers: OrbitMemberWithZennUsername = {}
 
     for await (const authorName of authorNames) {
       try {
         const OrbitClient = await this.getOrbitClient()
-        const member = await OrbitClient.members.searchBySource('Qiita', authorName)
+        const member = await OrbitClient.members.searchBySource('Zenn', authorName)
         if (member) {
           orbitMembers[authorName] = {
             id: member.data.id,

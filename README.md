@@ -1,8 +1,8 @@
-community-js-qiita-orbit 
+community-js-zenn-orbit 
 =================
 
 Simply activity tracker for Orbit.
-We can track the creating content activity in Qiita using Qiita API(v2).
+We can track the creating content activity in Zenn using Zenn API(v2).
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
@@ -17,11 +17,11 @@ We can track the creating content activity in Qiita using Qiita API(v2).
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g community-js-qiita-orbit
+$ npm install -g community-js-zenn-orbit
 $ orbit-zenn COMMAND
 running command...
 $ orbit-zenn (--version)
-community-js-qiita-orbit/0.2.0 darwin-x64 node-v16.13.1
+community-js-zenn-orbit/0.2.0 darwin-x64 node-v14.18.1
 $ orbit-zenn --help [COMMAND]
 USAGE
   $ orbit-zenn COMMAND
@@ -41,12 +41,13 @@ Put contenct creation activity to Orbit
 
 ```
 USAGE
-  $ orbit-zenn activities put [KEYWORD] [-d] [-a <value>] [-w <value>]
+  $ orbit-zenn activities put [KEYWORD] [-d] [-a <value>] [-w <value>] [-U]
 
 ARGUMENTS
   KEYWORD  Search keyword
 
 FLAGS
+  -U, --update-member-data      Update Orbit member data using Zenn profile
   -a, --api-key=<value>         Orbit API key
   -d, --debug                   Show process log
   -w, --workspace-name=<value>  Orbit workspace name
@@ -78,7 +79,7 @@ DESCRIPTION
   Display help for orbit-zenn.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.10/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
 
 ## `orbit-zenn search members KEYWORD`
 
@@ -112,7 +113,7 @@ EXAMPLES
 
 ## `orbit-zenn search posts KEYWORD`
 
-search Qiita posts
+search Zenn posts
 
 ```
 USAGE
@@ -126,11 +127,11 @@ FLAGS
   -t, --target=<value>       [default: tag]
 
 DESCRIPTION
-  search Qiita posts
+  search Zenn posts
 
 EXAMPLES
-  $ orbit-zenn search posts qiita : search by tag
+  $ orbit-zenn search posts zenn : search by tag
 
-  $ orbit-zenn search posts qiita -f table : search by tag (table style)
+  $ orbit-zenn search posts zenn -f table : search by tag (table style)
 ```
 <!-- commandsstop -->

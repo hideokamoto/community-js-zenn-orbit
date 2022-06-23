@@ -34,8 +34,8 @@ type PutActivityWithUpdatingMemberData = {
      * @deprecated
      */
     name?: string;
-    source: 'Qiita';
-    source_host: 'qiita.com',
+    source: 'Zenn';
+    source_host: 'zenn.dev',
     username: string;
     url: string;
     /**
