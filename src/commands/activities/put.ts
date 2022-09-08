@@ -137,6 +137,7 @@ export default class ActivitiesPut extends Command {
     const memberProps: PutMemberRequest['member'] = {
       name: user.name || post.username,
       teammate: false,
+      location: 'Japan',
     }
     if (this.isDebug) console.log({user, memberProps})
     const OrbitClient = await this.getOrbitClient()
